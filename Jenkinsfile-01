@@ -1,17 +1,30 @@
 // Building WAR file
 pipeline {
-    agent none
-    stages {
-        stage('Code Build') {
-            agent {
-                docker {
-                    label 'docker-slave01'
-                    image 'maven:3.8.3-adoptopenjdk-11'
-                }
-            }
-            steps {
-                sh "mvn clean package"
-            }
-        }
-    }
+agent any 
+stages {
+ stage ('clean'){
+ steps{
+ bat mvn clean
+}}
+stage ('validate'){
+steps {
+bat mvn validate
+}}
+stage ('compile'){
+steps {
+bat mvn compile
+}}
+stage ('test'){
+steps {
+bat mvn test
+}}
+stage ('package'){
+steps {
+bat mvn package
+}}
+stage ('install'){
+steps {
+bat mvn install
+}}
+}
 }

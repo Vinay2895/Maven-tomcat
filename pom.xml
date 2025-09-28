@@ -106,12 +106,12 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat9-maven-plugin</artifactId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
                     <url>http://localhost:8080/manager/text</url>
                     <server>TomcatServer</server>
-                    <path>/webapps</path>
+                    <path>/</path>
                     <username>admin</username>
                     <password>admin</password>
                 </configuration>
@@ -119,3 +119,4 @@
         </plugins>
     </build>
 </project>
+
